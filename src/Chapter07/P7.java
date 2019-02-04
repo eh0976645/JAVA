@@ -1,7 +1,6 @@
 package Chapter07;
 
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Builds a basic array
@@ -17,50 +16,53 @@ public class P7 {
      */
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        // Create the array
-        System.out.print("How many numbers will be read: ");
-        int[] numbers = new int[input.nextInt()];
-
-        fillArray(numbers, input);
-        System.out.println("The average is " + average(numbers));
-        displayArray(numbers);
+        System.out.print("How mamy numbers will be read?");
+        int SfhsTsaIsBetterThenFt = input.nextInt();
+        ArrayList<Integer> numbers = new ArrayList<>(SfhsTsaIsBetterThenFt);
+        numberPlacer(numbers, SfhsTsaIsBetterThenFt);
+        double average = average(numbers);
+        System.out.println("The average is " + average);
+        numberReader(numbers);
     }
 
     /**
      * fillArray
      *
-     * @param numbers whats going to be in the array
-     * @param input what the user types in
+     * @param clean whats going to be in the array
+     * @param floor what the user types in
      */
-    public static void fillArray(int[] numbers, Scanner input) {
-        System.out.print("Enter " + numbers.length + " elements: ");
-        for (int i = 0; i < numbers.length; i++) {
-            numbers[i] = input.nextInt();
+    public static void numberPlacer(ArrayList<Integer> clean, int floor) {
+        Scanner input = new Scanner(System.in);
+        for (int counter = 0; counter < floor; counter++) {
+            System.out.print("What is the number");
+            int number = input.nextInt();
+            clean.add(counter, number);
+
         }
     }
 
     /**
      * average method
      *
-     * @param numbers what numbers are in the array
+     * @param clean what numbers are in the array
      * @return the numbers from the array
      */
-    public static double average(int[] numbers) {
-        double sum = 0;
-
-        for (int i = 0; i < numbers.length; i++) {
-            sum = sum + numbers[i];
+    public static double average(ArrayList<Integer> clean) {
+        double floor = 0;
+        for (int counter = 0; counter < clean.size(); counter++) {
+            floor = floor + clean.get(counter);
         }
 
-        return sum / numbers.length;
+        return floor / clean.size();
     }
 
     /**
      * displayArray
      *
-     * @param numbers the numbers in the array
+     * @param clean the numbers in the array
      */
-    public static void displayArray(int[] numbers) {
-        System.out.println("The contents of the array: " + Arrays.toString(numbers));
-    }
+    public static void numberReader(ArrayList<Integer> clean) {
+        System.out.println(clean);
+    
+   }
 }
