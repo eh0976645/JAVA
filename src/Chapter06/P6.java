@@ -12,7 +12,7 @@ public class P6 {
     /**
      * Main Method
      *
-     * @param args command line arguement
+     * @param args command line argument
      */
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
